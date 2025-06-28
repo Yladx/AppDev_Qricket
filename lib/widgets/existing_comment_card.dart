@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 /// Card widget for displaying existing comments
 class ExistingCommentCard extends StatelessWidget {
   final String comment;
+  final String title; // Added title field
   final int index;
   final int rating; // Rating from 1 to 5
 
   const ExistingCommentCard({
     super.key,
     required this.comment,
+    required this.title, // Added title parameter
     required this.index,
     required this.rating,
   });
@@ -46,12 +48,28 @@ class ExistingCommentCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: Text(
-                    comment,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.black87,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Feedback title
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      // Feedback comment
+                      Text(
+                        comment,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

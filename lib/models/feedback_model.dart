@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:math';
-import 'event_model.dart';
 
 /// Represents a feedback entry in the system
 class FeedbackModel {

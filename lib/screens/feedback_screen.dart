@@ -447,9 +447,11 @@ class _FeedbackScreenState extends BaseScreenState<FeedbackScreen> {
           itemBuilder: (context, index) {
             final commentData = widget.selectedEvent.existingComments[index];
             final comment = commentData['comment'] as String;
+            final title = commentData['title'] as String? ?? 'Feedback ${index + 1}'; // Fallback title
             final rating = commentData['rating'] as int;
             return ExistingCommentCard(
               comment: comment,
+              title: title, // Pass title to the widget
               index: index,
               rating: rating,
             );

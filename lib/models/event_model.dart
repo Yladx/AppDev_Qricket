@@ -33,6 +33,14 @@ class EventModel {
     return 5; // Default rating
   }
 
+  /// Get title for a specific comment index
+  String getCommentTitle(int index) {
+    if (index >= 0 && index < _existingComments.length) {
+      return _existingComments[index]['title'] as String? ?? 'Feedback';
+    }
+    return 'Feedback'; // Default title
+  }
+
   /// Constructor for creating a new event
   EventModel({
     required String id,
