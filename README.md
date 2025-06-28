@@ -2,6 +2,11 @@
 
 A Flutter application that provides an object-oriented, event-based feedback system with star ratings. Each event has its own dedicated feedback section with existing comments that always remain visible, and users can add, edit, and delete their own feedback. Feedback is always tied to a unique event by a 10-digit numeric event ID.
 
+**Recent Improvements:**
+- Existing comments now display a feedback title above the comment text for better clarity.
+- The feedback form is fully scrollable and supports long feedback without overflow errors.
+- The event list (home screen) updates immediately with new feedback and ratings after returning from the feedback screen—no manual refresh needed.
+
 ## 📦 Libraries Used
 
 - **Flutter**: UI framework for building cross-platform apps
@@ -95,11 +100,14 @@ Feel free to extend the app with more events, authentication, or cloud storage w
 - **Star Ratings**: Rate events from 1 to 5 stars
 - **Event-Only Feedback**: Each event has its own dedicated feedback section
 - **One Feedback Per Event**: Users can submit only one feedback per event
+- **Existing Comments with Titles**: Predefined comments now show a descriptive title above the comment text.
 - **Existing Comments with Ratings**: Each event comes with predefined comments that have star ratings and are always visible
 - **User Feedback CRUD**: Users can add, edit, and delete their own feedback per event (one per event)
 - **Total Rating Calculation**: Calculates average rating including both existing comments and user feedback
 - **Persistent Display**: Existing comments never disappear, even after adding user feedback
 - **Event Association**: All feedback is linked to specific events
+- **Fully Scrollable Feedback Form**: The add/edit feedback form is fully scrollable and supports long feedback without overflow errors, even when the keyboard is open.
+- **Instant Home Screen Update**: The event list updates immediately with new feedback and ratings after returning from the feedback screen—no manual refresh required.
 
 ### 🏗️ Object-Oriented Architecture
 - **Encapsulation**: Private fields with public getters
@@ -111,7 +119,7 @@ Feel free to extend the app with more events, authentication, or cloud storage w
 ### 📱 User Interface
 - **Event-First Workflow**: Start by selecting an event, then manage its feedback
 - **Event-Specific Views**: Each event has its own feedback screen
-- **Always Visible Existing Comments**: Shows predefined comments with ratings that never disappear
+- **Always Visible Existing Comments**: Shows predefined comments with titles and ratings that never disappear
 - **Separate User Feedback Section**: User feedback appears in a separate section with edit/delete options
 - **Modern UI**: Clean, intuitive interface with Material Design
 - **Event Cards**: Display event information with total feedback count and average rating
@@ -154,10 +162,12 @@ Feel free to extend the app with more events, authentication, or cloud storage w
 3. **Usage**:
    - Browse events on the main screen (shows total feedback count per event)
    - Tap an event to view its specific feedback
-   - See existing comments with ratings (always visible, cannot be edited)
+   - See existing comments with titles and ratings (always visible, cannot be edited)
    - Add your own feedback by selecting star rating (1-5) for that event
+   - The feedback form is fully scrollable and supports long feedback
    - Edit or delete your own feedback using the action buttons
    - View total statistics including existing comments and user feedback
+   - **After adding or editing feedback, the event list updates instantly when you return to the home screen**
 
 ## User Feedback Features
 

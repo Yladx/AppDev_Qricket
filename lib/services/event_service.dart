@@ -21,9 +21,8 @@ class EventService {
   bool get isInitialized => _isInitialized;
 
   /// Initialize the service and load data
-  Future<void> initialize() async {
-    if (_isInitialized) return;
-    
+  Future<void> initialize({bool force = false}) async {
+    if (_isInitialized && !force) return;
     try {
       await _storageService.initialize();
       await _loadEvents();

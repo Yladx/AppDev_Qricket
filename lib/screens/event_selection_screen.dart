@@ -39,8 +39,8 @@ class _EventSelectionScreenState extends BaseScreenState<EventSelectionScreen> {
   Future<void> _loadData() async {
     try {
       showLoading();
-      await _eventService.initialize();
-      await _feedbackService.initialize();
+      await _eventService.initialize(force: true);
+      await _feedbackService.initialize(force: true);
       
       _events = _eventService.events;
       _feedbackList = _feedbackService.feedbacks;
@@ -56,12 +56,15 @@ class _EventSelectionScreenState extends BaseScreenState<EventSelectionScreen> {
   }
 
   /// Navigate to feedback screen for selected event
-  void _navigateToEventFeedback(EventModel event) {
-    Navigator.of(context).push(
+  void _navigateToEventFeedback(EventModel event) async {
+    await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => FeedbackScreen(selectedEvent: event),
       ),
-    ).then((_) => _loadData()); // Refresh data when returning
+    );
+    // Always reload data and update state after returning
+    await _loadData();
+    setState(() {});
   }
 
   @override
