@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Qricket',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF00B388)),
         useMaterial3: true,
       ),
       home: const EventSelectionScreen(),
